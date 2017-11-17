@@ -91,7 +91,6 @@ public class check_order extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println("RESPONSEE: " + response);
                         int preptime = 0;
                         try {
                             JSONObject obj = new JSONObject(response);
@@ -104,14 +103,10 @@ public class check_order extends AppCompatActivity {
                         clearlists(findViewById(R.id.clearbutton));
                         startActivity(intent);
                         finish();
-//                        String[] courses = parseJson(response);
-//                        setAdapter(courses);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("ERRORR: " + error);
-//                setAdapter(new String[]{"Error!"});
             }
         });
         queue.add(stringRequest);
